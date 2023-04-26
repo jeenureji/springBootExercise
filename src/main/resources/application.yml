@@ -2,6 +2,9 @@ logging:
   level:
     org:
       springframework: info
+server:
+  port: 8080
+
 
 management:
   endpoints:
@@ -10,7 +13,10 @@ management:
         include: inf0
 
 spring:
+  profiles:
+    active: local
   datasource:
+    driver: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/college
     username: root
     password: root
@@ -22,5 +28,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+
+
 
 

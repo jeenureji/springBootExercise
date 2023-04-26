@@ -2,24 +2,37 @@ package com.collage.students.fouryearscollage.model;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Getter
 @Setter
-
+@Entity
+@Table(name = "student")
+@NoArgsConstructor
 public class Student {
-
-    private int student_id;
-    private String student_name;
-    private String student_branch;
-    private String student_college;
+    @Id
+    @Column(name = "student_id")
+    private int studentId;
+    @Column(name = "student_name")
+    private String studentName;
+    @Column(name = "student_branch")
+    private String studentBranch;
+    @Column(name = "student_college")
+    private String studentCollege;
+    @Column(name = "student_subject")
     private String student_subject;
 
-    public Student(int student_id, String student_name, String student_branch, String student_college, String student_subject) {
-        this.student_id = student_id;
-        this.student_name = student_name;
-        this.student_branch = student_branch;
-        this.student_college = student_college;
+    public Student(int studentId, String studentName, String studentBranch, String studentCollege, String student_subject) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.studentBranch = studentBranch;
+        this.studentCollege = studentCollege;
         this.student_subject = student_subject;
     }
 
