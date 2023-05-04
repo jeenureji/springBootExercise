@@ -7,7 +7,9 @@ import java.util.List;
 public interface StudentService {
 
     List<Student> getAllStudentDetails();
-    Student createStudent(Student student);
+    void createStudent(Student student);
 
     Student getStudentById(Integer studentId);
+
+
 }
