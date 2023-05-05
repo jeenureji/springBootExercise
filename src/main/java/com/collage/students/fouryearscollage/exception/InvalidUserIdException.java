@@ -1,4 +1,4 @@
-package com.collage.students.fouryearscollage.service;
+package com.collage.students.fouryearscollage.exception;
 
 public class InvalidUserIdException extends RuntimeException {
 
