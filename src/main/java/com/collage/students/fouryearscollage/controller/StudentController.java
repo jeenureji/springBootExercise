@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Slf4j
 @RestController
@@ -24,8 +25,10 @@ public class StudentController {
     StudentService studentService;
 
     @GetMapping("/students")
-    public List<Student> getAllStudentDetails() {
-        return studentService.getAllStudentDetails();
+    public ResponseEntity<List<Student>> getAllStudentDetails() {
+        List<Student> students = studentService.getAllStudentDetails();
+
+        return new ResponseEntity<>(students, HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/addStudents")

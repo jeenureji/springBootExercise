@@ -37,5 +37,12 @@ public class CoustomiseException {
         return entity;
     }
 
-
+    @ExceptionHandler(CollegeNotFoundException.class)
+    public ResponseEntity<Object> studIdLengthExcep(CollegeNotFoundException exception, WebRequest request){
+        ExceptionResponce exceptionResponce = new ExceptionResponce();
+        exceptionResponce.setDateTime(LocalDateTime.now());
+        exceptionResponce.setMessage("college not found");
+        ResponseEntity<Object> entity = new ResponseEntity<>(exceptionResponce, HttpStatus.FORBIDDEN);
+        return entity;
+    }
 }
