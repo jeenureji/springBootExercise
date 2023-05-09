@@ -24,9 +24,32 @@ public class StudentServiceImp implements StudentService {
 
 
     public List<Student> getAllStudentDetails() {
+        List<Student> students = studentRepository.findAll();
+        for(Student student: students) {
+            if (student.getStudent_subject() == null) {
+                String stu = student.getStudentName();
+//        if(stu.equals("jeenu")){
+//            student.setStudent_subject("html");
+//        } else if (stu.equals("jhon")) {
+//            student.setStudent_subject("java");
+//        }
+                switch (stu) {
+                    case "jeenu":
+                        student.setStudent_subject("java");
+                    break;
+                    case "jhon":
+                        student.setStudent_subject("python");
+                    break;
+                    case "ram":
+                        student.setStudent_subject("html");
+                    break;
+                    default:
+                        throw new StudentNotFoundException();
 
-        return studentRepository.findAll();
-
+                }
+            }
+        }
+        return students;
     }
 
     @Override

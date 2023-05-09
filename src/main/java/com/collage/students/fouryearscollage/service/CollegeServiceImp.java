@@ -1,12 +1,15 @@
 package com.collage.students.fouryearscollage.service;
 
+import com.collage.students.fouryearscollage.exception.CollegeNotFoundException;
 import com.collage.students.fouryearscollage.model.College;
 import com.collage.students.fouryearscollage.model.Student;
 import com.collage.students.fouryearscollage.repository.CollegeRepository;
 import com.collage.students.fouryearscollage.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -23,6 +26,12 @@ public class CollegeServiceImp implements CollegeService {
 
     @Override
     public List<College> getCollegeStudents() {
-        return collegeRepository.findAll();
+        try {
+            List<College> colleges = collegeRepository.findAll();
+            return colleges;
+
+        }catch (CollegeNotFoundException e){
+            throw new CollegeNotFoundException();
+        }
     }
 }

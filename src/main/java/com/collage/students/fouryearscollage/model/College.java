@@ -23,4 +23,5 @@ public class College {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "Student_college")
     private List<Student> collegeStudentsDetails;
+
 }
