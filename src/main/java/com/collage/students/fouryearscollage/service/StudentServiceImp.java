@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -72,6 +74,16 @@ public class StudentServiceImp implements StudentService {
                 logger.info("student id passed is:" + studentId);
                 throw new StudentNotFoundException();
             }
+//            for(Map.Entry<Integer, Student> entry : stu.entrySet()) {
+//                Integer hj = entry.getKey();
+//                Student sj = entry.getValue();
+//                if (hj != null) {
+//                   if (Objects.equals(sj.getStudentName(), "jeenu")) {
+//                        sj.setStudentName("jeenu reji");
+//
+//                    }
+//                }
+//            }
 
             return stu;
         } catch (NumberFormatException e) {
