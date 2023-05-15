@@ -20,7 +20,7 @@ public class Student {
     @Column(name = "student_id")
     private int studentId;
     @Column(name = "student_name")
-    @JsonProperty("student_name")
+//    @JsonProperty("student_name")
     private String studentName;
     @Column(name = "student_branch")
     private String studentBranch;
