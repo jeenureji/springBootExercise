@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -47,8 +48,8 @@ public class StudentDataTest {
     @ParameterizedTest
     @MethodSource("provideStudent")
     public void checkStudentDetails(Student student) {
-            given(studentRepository.findByStudentId(student.getStudentId())).willReturn(student);
-            HashMap<Integer, Student> student3 = studentServiceImp.getStudentById(student.getStudentId());
+            given(studentRepository.findByStudentId(student.getStudentId())).willReturn(Optional.of(student));
+            HashMap<Integer, Optional<Student>> student3 = studentServiceImp.getStudentById(student.getStudentId());
             Assertions.assertThat(student3).isNotNull();
 
 
