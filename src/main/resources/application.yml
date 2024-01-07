@@ -18,6 +18,10 @@ management:
       exposure:
         include: inf0
 
+springfox:
+  documentation:
+    swagger-ui:
+      enable: true
 spring:
   profiles:
     active: local
